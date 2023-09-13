@@ -1,3 +1,4 @@
+
 public class Pokemon {
     // fields, 멤버 변수, 속성
     // 캡슐화
@@ -70,5 +71,13 @@ public class Pokemon {
     void evolve(Pokemon pokemon){
         pokemon.level = pokemon.level + 1;
         System.out.println(pokemon.name + "의 레벨이 " + pokemon.level + "으로 증가!");
+    }
+    void attack(){
+        System.out.println(this.name + "이(가) 광역 도발 공격을 시전합니다");
+    }
+    // method overloading
+    // 메서드 오버로딩
+    void attack(Pokemon pokemon){
+        System.out.println(this.name + "이(가) " + pokemon.name + "에게 공격합니다");
     }
 }
