@@ -1,4 +1,5 @@
 
+
 public class Pokemon {
     // fields, 멤버 변수, 속성
     String name;
@@ -12,8 +13,9 @@ public class Pokemon {
     }
 
     // methods, 멤버 함수, 행위
-    void evolve(int level){
-        level = level + 1;
-        System.out.println("포켓몬스터의 레벨이 증가 : " + level);
+    void evolve(Pokemon pokemon){
+        pokemon.level = pokemon.level + 1;
+        System.out.println(pokemon.name + "의 레벨이 " + pokemon.level + "으로 증가!");
     }
 }
+
