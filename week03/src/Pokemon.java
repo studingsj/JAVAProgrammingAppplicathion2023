@@ -1,5 +1,4 @@
 
-
 class Pokemon {
     //캡슐화
     //정적(클래스) 변수를 사용하면 공유되는 필드를 지원
@@ -19,7 +18,7 @@ class Pokemon {
     private static int pokemonCount = 0;
 
 
-    Pokemon() {
+    public Pokemon() {
         System.out.println("포켓몬 객체가 생성(기본 생성자)!");
         this.hp = 100;
         pokemonCount++;
@@ -28,7 +27,7 @@ class Pokemon {
     //생성자 오버로딩 (constructor)
 
 
-    Pokemon(String name) {
+    public Pokemon(String name) {
         //this(name,1); this 생성자를 삭제해야지 Count 사용 가능
         System.out.println("포켓몬 객체가 생성(매개변수 1개 생성자)!");
         this.name = name;
@@ -37,7 +36,7 @@ class Pokemon {
         pokemonCount++;
     }
 
-    Pokemon(String name, int level ) {
+    public Pokemon(String name, int level ) {
         System.out.println("포켓몬 객체가 생성(매개변수 2개 생성자)!");
         this.name = name;
         this.level = level;
