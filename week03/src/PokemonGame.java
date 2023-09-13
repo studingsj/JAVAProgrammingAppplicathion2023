@@ -8,9 +8,16 @@ public class PokemonGame {
         Pikachu p1 = new Pikachu();
         Pokemon c1 = new Charizard(); // upcasting
 
+        //anonymous object 익명객체
         s1.setFlyable(new NoFly());
         p1.setFlyable(new NoFly());
-        c1.setFlyable(new Wings());
+        //c1.setFlyable(new Wings());
+        c1.setFlyable(new Wings() { //날개의 type을 주고 싶을때 익명클래스 해서 사용
+            @Override
+            public void fly() {
+                System.out.println("강철 날개로 날아갑니다!");
+            }
+        });
 
         p1.performFly();
         c1.performFly();
