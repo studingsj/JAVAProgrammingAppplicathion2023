@@ -1,11 +1,21 @@
-
-public class Pokemon {
+public abstract class Pokemon {
     //부모 자식간 접근시 protected/보안이 약해짐
     protected int level;
     //private int level;
     private int hp;
     protected String name;
     private static int pokemonCount = 0; // 클래스(정적) 변수
+
+    Flyable flyable; //연관 관계
+
+    public void setFlyable(Flyable flyable) { //upcast
+        this.flyable = flyable;
+    }
+
+    public void performFly(){
+        System.out.println(this.name + "이(가) ");
+        this.flyable.fly();
+    }
 
     public static int getPokemonCount() { //클래스(정적) 메소드
         return pokemonCount;
@@ -39,9 +49,7 @@ public class Pokemon {
         this.hp = hp;
     }
     //속성별 오버라이딩(Alt+inset,o)
-    public void attack() {
-        System.out.println(this.name + "이(가) 광역 도발 공격을 시전합니다.");
-    }
+    public abstract void attack();
     //매개변수(pokemon)를 사용안해도됨, this활용
     //viod 앞에 아무것도 없으면 디폴트 접근 -> 같은 패키지에 있어야만 사용가능
     public void evolve() {
@@ -50,6 +58,8 @@ public class Pokemon {
             System.out.println("삐까 삐까~");
         } else if (this instanceof Squirtle) {
             System.out.println("꼬북 꼬북~~");
+        } else if (this instanceof Charizard){
+            System.out.println("자몽 자몽~~");
         }
         this.level = this.level + 1;
         this.hp = this.hp + 100; //레벨 업시 체력 +100

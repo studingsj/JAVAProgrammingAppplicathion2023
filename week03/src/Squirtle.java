@@ -1,5 +1,3 @@
-
-
 public class Squirtle extends Pokemon{
     public Squirtle() {
         super();  // 부모 클래스의 기본 생성자 호출 (생략 가능)
@@ -13,5 +11,8 @@ public class Squirtle extends Pokemon{
     @Override
     public void attack() {
         System.out.println(this.name + "이(가) 광역 물대포 공격을 시전합니다");
+    }
+    public void type(){
+        System.out.println(this + "물속성!!");
     }
 }
