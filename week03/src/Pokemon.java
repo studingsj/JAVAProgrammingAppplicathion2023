@@ -1,20 +1,14 @@
 
-
-//public final class Pokemon {
 public class Pokemon {
-    //private int level;
+    //부모 자식간 접근시 protected/보안이 약해짐
     protected int level;
+    //private int level;
     private int hp;
     protected String name;
+    private static int pokemonCount = 0; // 클래스(정적) 변수
 
-    private static int pokemonCount = 0;  // 클래스(정적) 변수
-    public static int getPokemonCount() { // 클래스(정적) 메서드
+    public static int getPokemonCount() { //클래스(정적) 메소드
         return pokemonCount;
-    }
-
-    public Pokemon() {
-        System.out.println("부모 클래스의 기본 생성자");
-        pokemonCount++;
     }
 
     public Pokemon(int level, int hp, String name) {
@@ -22,6 +16,10 @@ public class Pokemon {
         this.level = level;
         this.hp = hp;
         this.name = name;
+    }
+
+    public Pokemon() {
+        System.out.println("부모 클래스의 기본 생성자");
         pokemonCount++;
     }
 
@@ -40,26 +38,34 @@ public class Pokemon {
     public void setHp(int hp) {
         this.hp = hp;
     }
-
-    public void attack(){
-        System.out.println(this.name + "이(가) 광역 도발 공격을 시전합니다");
+    //속성별 오버라이딩(Alt+inset,o)
+    public void attack() {
+        System.out.println(this.name + "이(가) 광역 도발 공격을 시전합니다.");
     }
-    public void evolve(){  // 매개변수 제거
-        this.level = this.level + 1;  // 매개변수 pokemon 대신에 this 사용
-        this.hp = this.hp + 100;  // 레벨 업시 체력 +100
+    //매개변수(pokemon)를 사용안해도됨, this활용
+    //viod 앞에 아무것도 없으면 디폴트 접근 -> 같은 패키지에 있어야만 사용가능
+    public void evolve() {
+
+        if(this instanceof Pikachu) {
+            System.out.println("삐까 삐까~");
+        } else if (this instanceof Squirtle) {
+            System.out.println("꼬북 꼬북~~");
+        }
+        this.level = this.level + 1;
+        this.hp = this.hp + 100; //레벨 업시 체력 +100
         String texts = """
                     name의 레벨이
-                    level으로 증가!
-                """.replace("level", this.level + "")  // pokemon 대신 this
-                .replace("name", this.name);
+                    level으로 증가
+                """.replace("name", this.name)
+                .replace("level",this.level + "");
         System.out.println(texts);
     }
 
-    public final void info(){  // 자식클래스에서 재정의(override) 불가
-        System.out.println("================");
+    public final void info(){ //자식클래스에서 재정의(override) 불가
+        System.out.println("===================");
         System.out.println("이름 : " + name);
         System.out.println("레벨 : " + level);
         System.out.println("체력 : " + hp);
-        System.out.println("================");
+        System.out.println("===================");
     }
 }
