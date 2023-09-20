@@ -22,14 +22,14 @@ public abstract class Pokemon {
     }
 
     public Pokemon(int level, int hp, String name) {
-        System.out.println("부모 클래스의 매개변수 생성자");
+        //System.out.println("부모 클래스의 매개변수 생성자");
         this.level = level;
         this.hp = hp;
         this.name = name;
     }
 
     public Pokemon() {
-        System.out.println("부모 클래스의 기본 생성자");
+        //System.out.println("부모 클래스의 기본 생성자");
         pokemonCount++;
     }
 
