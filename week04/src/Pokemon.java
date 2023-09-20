@@ -52,6 +52,11 @@ public abstract class Pokemon {
     public abstract void attack();
     //매개변수(pokemon)를 사용안해도됨, this활용
     //viod 앞에 아무것도 없으면 디폴트 접근 -> 같은 패키지에 있어야만 사용가능
+
+    public void attack(Pokemon targertPokemon) {
+        System.out.println(this.name + "이(가) " + targertPokemon.name + "에게 공격 시전!");
+        //targertPokemon.hp = this.hp ->다음주에
+    }
     public void evolve() {
 
         if(this instanceof Pikachu) {
