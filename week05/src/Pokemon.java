@@ -86,8 +86,10 @@ public abstract class Pokemon {
 
     public void attack(Pokemon targertPokemon , String skill) {
         System.out.println(this.name + "이(가) " + targertPokemon.name + "에게" + skill + " 공격 시전!");
-
-        targertPokemon.hp = this.hp -(this.attackRate - targertPokemon.defenceRate);
+        int temporaryAttackRate =this.attackRate - targertPokemon.defenceRate;
+        if (temporaryAttackRate < 0 )
+            temporaryAttackRate = 0;
+        targertPokemon.hp = this.hp - temporaryAttackRate;
         if (targertPokemon.hp <= 0) {
             System.out.println(targertPokemon.name + "은(는) 사망 " );
         } else {
