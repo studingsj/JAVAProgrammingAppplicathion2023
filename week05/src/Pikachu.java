@@ -2,11 +2,12 @@ public class Pikachu extends Pokemon{
     public Pikachu(Flyable f)  {
         System.out.println("피카피카");
         this.level = 1;
-        this.attackRate =55;
+//        this.attackRate =55;
+        this.attackRate = (int)(Math.random() * 6) + 50; // 50 ~ 55
         this.defenceRate = 40;
         this.setHp(35);
         this.name = "피카츄";
-        //this.flyable = new NoFly(); //Association, Has-a (Composition)
+//        this.flyable = new NoFly(); //Association, Has-a (Composition)
         this.flyable = f;
     }
 

@@ -38,13 +38,14 @@ public class PokemonGame {
             System.out.println("정상적인 값이 아닙니다.");
         }
 
-        int menu2;
+        int menu2 , skillMenu;
         while (true) {
             System.out.print("\t1) 전투 2) 도망 3) 종료 : ");
             menu2 = s.nextInt();
             if (menu2 == 1) {
-                System.out.print("전투 기술: ");
-                player.attack(enemy , s.next());
+                System.out.print("전투 기술 \n 1) " +player.skills[0] + "    2) " + player.skills[1] + "    3) " + player.skills[2] + "  : ");
+                skillMenu =s.nextInt();
+                player.attack(enemy , player.skills[skillMenu-1]);
             } else if (menu2 == 2) {
 
             } else {

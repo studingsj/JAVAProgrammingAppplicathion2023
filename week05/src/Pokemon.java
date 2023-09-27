@@ -8,6 +8,10 @@ public abstract class Pokemon {
     protected int defenceRate;
 
     protected int attackRate;
+
+    protected String[] skills; //3가지 skill 추가
+
+    protected  int[] specialAttackRate;
     private static int pokemonCount = 0; // 클래스(정적) 변수
 
     Flyable flyable; //연관 관계
@@ -85,16 +89,15 @@ public abstract class Pokemon {
     //viod 앞에 아무것도 없으면 디폴트 접근 -> 같은 패키지에 있어야만 사용가능
 
     public void attack(Pokemon targertPokemon , String skill) {
-        System.out.println(this.name + "이(가) " + targertPokemon.name + "에게" + skill + " 공격 시전!");
-        int temporaryAttackRate =this.attackRate - targertPokemon.defenceRate;
+        System.out.println(this.name + "이(가) " + targertPokemon.name + "에게 " + skill + " 공격 시전!");
+        int temporaryAttackRate = this.attackRate - targertPokemon.defenceRate;
         if (temporaryAttackRate < 0 )
             temporaryAttackRate = 0;
-        targertPokemon.hp = this.hp - temporaryAttackRate;
+        targertPokemon.hp -= temporaryAttackRate;
         if (targertPokemon.hp <= 0) {
             System.out.println(targertPokemon.name + "은(는) 사망 " );
         } else {
         System.out.println(targertPokemon.name + "의 체력은 " + targertPokemon.hp + "입니다.");
         }
     }
-
 }
