@@ -1,5 +1,8 @@
 package Pokemonster;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Pokemon {
     //부모 자식간 접근시 protected/보안이 약해짐
     protected int level;
@@ -10,10 +13,8 @@ public abstract class Pokemon {
     protected int defenceRate;
 
     protected int attackRate;
-
-    protected String[] skills;
-
-    protected  int[] specialAttackRate;
+    protected List<String> skills = new ArrayList<>();
+    protected List<Integer> specialAttackRate = new ArrayList<>();
 
     private static int pokemonCount = 0; // 클래스(정적) 변수
 
@@ -91,16 +92,17 @@ public abstract class Pokemon {
     //매개변수(pokemon)를 사용안해도됨, this활용
     //viod 앞에 아무것도 없으면 디폴트 접근 -> 같은 패키지에 있어야만 사용가능
 
-    public void attack(Pokemon targertPokemon , int skillNumber ) {
-        System.out.println(this.name + "이(가) " + targertPokemon.name + "에게 " + this.skills[skillNumber-1] + " 공격 시전!");
-        int temporaryAttackRate = this.attackRate - targertPokemon.defenceRate;
-        if (temporaryAttackRate < 0 )
+    public void attack(Pokemon targetPokemon, int skillNumber){
+        //System.out.println(this.name +"이(가) " + targetPokemon.name + "에게 "+ skill +" 공격 시전!");
+        System.out.println(this.name +"이(가) " + targetPokemon.name + "에게 "+ this.skills.get(skillNumber-1) +" 공격 시전!");
+        int temporaryAttackRate = (this.attackRate + this.specialAttackRate.get(skillNumber-1)) - targetPokemon.defenceRate;
+        if(temporaryAttackRate < 0)
             temporaryAttackRate = 0;
-        targertPokemon.hp = (this.attackRate + this.specialAttackRate[skillNumber-1]) - temporaryAttackRate;
-        if (targertPokemon.hp <= 0) {
-            System.out.println(targertPokemon.name + "은(는) 사망 " );
-        } else {
-        System.out.println(targertPokemon.name + "의 체력은 " + targertPokemon.hp + "입니다.");
+        targetPokemon.hp = targetPokemon.hp - temporaryAttackRate;
+        if(targetPokemon.hp <= 0){
+            System.out.println(targetPokemon.name + "은(는) 사망!");
+        }else{
+            System.out.println(targetPokemon.name + "의 체력은 " + targetPokemon.hp + "입니다");
         }
     }
 }

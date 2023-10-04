@@ -1,5 +1,7 @@
 package Pokemonster;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PokemonGame {
@@ -45,7 +47,7 @@ public class PokemonGame {
             System.out.print("\t1) 전투 2) 도망 3) 종료 : ");
             menu2 = s.nextInt();
             if (menu2 == 1) {
-                System.out.print("전투 기술 \n 1) " +player.skills[0] + "    2) " + player.skills[1] + "    3) " + player.skills[2] + "  : ");
+                System.out.print("전투 기술 \n 1) " +player.skills.get(0) + "    2) " + player.skills.get(1) + "    3) " + player.skills.get(2) + "  : ");
                 skillMenu =s.nextInt();
 //                player.attack(enemy , player.skills[skillMenu-1]);
                 player.attack(enemy, skillMenu);
