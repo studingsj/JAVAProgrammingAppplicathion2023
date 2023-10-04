@@ -1,3 +1,5 @@
+package Pokemonster;
+
 import java.util.Scanner;
 
 public class PokemonGame {
@@ -23,7 +25,7 @@ public class PokemonGame {
         }
 
         //플레이어 포켓몬
-//        Pokemon player = new Pokemon(); //객체 생성 불가능
+//        Pokemonster.Pokemon player = new Pokemonster.Pokemon(); //객체 생성 불가능
             Pokemon player = null; //추상클래스의 변수 선언운 거눙 (upcasting 용)
         Scanner s = new Scanner(System.in);
         System.out.println("포겟몬을 고르세요. \n1) 피카쥬 2) 꼬부기 3) 리자몽 : ");

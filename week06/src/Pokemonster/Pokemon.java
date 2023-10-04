@@ -1,3 +1,5 @@
+package Pokemonster;
+
 public abstract class Pokemon {
     //부모 자식간 접근시 protected/보안이 약해짐
     protected int level;
@@ -9,9 +11,10 @@ public abstract class Pokemon {
 
     protected int attackRate;
 
-    protected String[] skills; //3가지 skill 추가
+    protected String[] skills;
 
     protected  int[] specialAttackRate;
+
     private static int pokemonCount = 0; // 클래스(정적) 변수
 
     Flyable flyable; //연관 관계
