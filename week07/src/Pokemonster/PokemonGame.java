@@ -26,7 +26,7 @@ public class PokemonGame {
             System.out.println("여긴 영원히 실행 안됩니다.");
         }
 
-        //플레이어 포켓몬
+//        플레이어 포켓몬
 //        Pokemonster.Pokemon player = new Pokemonster.Pokemon(); //객체 생성 불가능
             Pokemon player = null; //추상클래스의 변수 선언운 거눙 (upcasting 용)
         Scanner s = new Scanner(System.in);
