@@ -1,5 +1,8 @@
 package Pokemonster;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Charizard extends Pokemon{
     public Charizard(Flyable f) {
         System.out.println("자몽 자몽~");
@@ -12,13 +15,17 @@ public class Charizard extends Pokemon{
         this.name = "리자몽";
         this.flyable = f; //Association, has-a (Aggregation)
 //        this.skills = new String[]{"화염방사", "용의숨결", "할퀴기"};
-        this.skills.add("화염방사");
-        this.skills.add("용의숨결");
-        this.skills.add("할퀴기");
+//        this.skills.add("화염방사");
+//        this.skills.add("용의숨결");
+//        this.skills.add("할퀴기");
+
 //        this.specialAttackRate = new int[]{90, 60, 40};
-        this.specialAttackRate.add(90);
-        this.specialAttackRate.add(60);
-        this.specialAttackRate.add(40);
+//        this.specialAttackRate.add(90);
+//        this.specialAttackRate.add(60);
+//        this.specialAttackRate.add(40);
+
+        this.skills = new ArrayList<>(Arrays.asList("화염방사", "용의숨결", "할퀴기"));
+        this.specialAttackRate = new ArrayList<>(Arrays.asList(90, 60, 40));
     }
 
     public Charizard(int level, int hp, String name) {
