@@ -55,17 +55,27 @@ public class PokemonGame { //week08 NullPointerException(다른 번호 선택시
                 System.out.print("\t1) 전투 2) 도망 3) 종료 : ");
                 menu2 = s.nextInt();
                 if (menu2 == 1) {
-                    System.out.print("전투 기술 \n 1) " +player.skills.get(0) + "    2) " + player.skills.get(1) + "    3) " + player.skills.get(2) + "  : ");
-                    skillMenu =s.nextInt();
-//                player.attack(enemy , player.skills[skillMenu-1]);
-                    player.attack(enemy, skillMenu);
+                    while (true) {
+                        System.out.print("전투 기술 \n 1) " +player.skills.get(0) + "    2) " + player.skills.get(1) + "    3) " + player.skills.get(2) + "  : ");
+                        skillMenu =s.nextInt();
+                        if (skillMenu <= player.skills.size()) {
+                            //                player.attack(enemy , player.skills[skillMenu-1]);
+                            player.attack(enemy, skillMenu);
+                            enemy.attack(player, (int)(Math.random() * 3) + 1);
+                            break;
+                        } else {
+                            System.out.println("메뉴에서 공격 기술을 선택하세요.");
+                        }
 
-                    enemy.attack(player, (int)(Math.random() * 3) + 1);
+                    }
+
                 } else if (menu2 == 2) {
 
-                } else {
+                } else if (menu2 == 3) {
                     System.out.println("게임을 종료합니다.");
                     break;
+                } else {
+                    System.out.println("메뉴에서 선택하세요.");
                 }
             }
         } catch (InputMismatchException err) {
