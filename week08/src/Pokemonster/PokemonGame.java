@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class PokemonGame { //week08 NullPointException
+public class PokemonGame { //week08 NullPointerException(다른 번호 선택시 예외 처리로 해결)
     public static void main(String[] args) {
         System.out.println("포켓몬 게임을 시작합니다.\n야생 포켓몬이 나타났습니다.");
 //        System.out.println(Math.random());  // 0.0 <= x < 1.0
@@ -33,16 +33,21 @@ public class PokemonGame { //week08 NullPointException
         try{
             Pokemon player = null; //추상클래스의 변수 선언운 거눙 (upcasting 용)
             Scanner s = new Scanner(System.in);
-            System.out.println("포겟몬을 고르세요. \n1) 피카쥬 2) 꼬부기 3) 리자몽 : ");
-            int menu = s.nextInt();
-            if (menu == 1) {
-                player =new Pikachu(new NoFly());
-            } else if ( menu == 2) {
-                player = new Squirtle(new NoFly());
-            } else if ( menu == 3) {
-                player = new Charizard(new Wings());
-            } else {
-                System.out.println("정상적인 값이 아닙니다.");
+            while(true) {
+                System.out.println("포겟몬을 고르세요. \n1) 피카쥬 2) 꼬부기 3) 리자몽 : ");
+                int menu = s.nextInt();
+                if (menu == 1) {
+                    player =new Pikachu(new NoFly());
+                    break;
+                } else if ( menu == 2) {
+                    player = new Squirtle(new NoFly());
+                    break;
+                } else if ( menu == 3) {
+                    player = new Charizard(new Wings());
+                    break;
+                } else {
+                    System.out.println("정상적인 값이 아닙니다.");
+                }
             }
 
             int menu2 , skillMenu;
