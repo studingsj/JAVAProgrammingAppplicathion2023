@@ -61,19 +61,11 @@ public class PokemonGame {
                     produceEnemy();
                 }else if(menu == 3){
                     System.out.println("힐링 포션을 마십니다. 체력이 30hp 증가!");
-//                    UnaryOperator<Integer> healPotion = hp -> hp + 30;
+                    UnaryOperator<Integer> healPotion = hp -> hp + 30;
 //                    Function<Integer, Integer> healPotion = hp -> hp + 30;
-//                    int newHp = healPotion.apply(player.getHp());
-//                    player.setHp(newHp);
+                    int newHp = healPotion.apply(player.getHp());
+                    player.setHp(newHp);
 
-//                    Supplier <Integer> healPotion = () -> {
-//                        return 30;
-//                    };
-//                    player.setHp(healPotion.get() + player.getHp());
-
-                    Consumer<Integer> healPotion = n -> {
-                      int newHp = n
-                    };
 
                     System.out.println(player.name +"의 체력은 " +player.getHp() + "으로 증가!");
                 }else if(menu == 4){
